@@ -1,13 +1,11 @@
 from secrets import choice
+import string
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','k', 'l', 'm',
-            'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+def create_list():
+    _list = string.ascii_letters + string.digits + string.punctuation
+    return _list
 
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+def create_password(password_length=8, _list=create_list()):
+    password = [choice(_list) for i in range(password_length)]
+    return ''.join(password)
 
-caracters = ['!', '@', '#', '$', '%', '&', '*', '_', '+', '-', '=', '~']
-
-_list = alphabet + numbers + caracters
-passwords_length = 15
-password = [choice(_list) for i in range(passwords_length)]
-password = ''.join(password)
